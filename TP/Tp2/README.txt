@@ -1,1 +1,0 @@
-Ce dossier contient l'ossature basique pour votre TP2. Suivez les consignes du polycopié : utilisez PDO pour la connexion, factorisez l'entête et le pied, affichez la setlist avec tri et recherche JS.

@@ -1,9 +1,8 @@
 <?php
-// config.php : connexion PDO pour votre site (utilisez vos identifiants)
 $DB_HOST = 'localhost';
 $DB_NAME = 'myband';
-$DB_USER = 'root';   // adapté pour un MySQL local sans mot de passe
-$DB_PASS = '';       // mot de passe vide pour l'utilisateur root
+$DB_USER = 'AhmedBrand';   
+$DB_PASS = '[Mjy2ksr0zkcvud-';       
 $DB_CHARSET = 'utf8mb4';
 
 $dsn = "mysql:host=$DB_HOST;dbname=$DB_NAME;charset=$DB_CHARSET";

@@ -1,8 +1,15 @@
 <?php
 // setlist.php : affiche la liste des morceaux avec tri et recherche
 require __DIR__ . '/header.php';
-
-// Colonnes autorisées pour le tri
+// if (!function_exists('dd')) {
+//  function dd()
+//   {
+//       echo '<pre>';
+//       array_map(function($x) {var_dump($x);}, func_get_args());
+//       die;
+//    }
+//  }
+// Colonnes pour le tri
 $allowedCols = ['title','artist','style'];
 $col = isset($_GET['sort']) && in_array($_GET['sort'], $allowedCols, true) ? $_GET['sort'] : 'title';
 $dir = (isset($_GET['dir']) && strtolower($_GET['dir']) === 'desc') ? 'DESC' : 'ASC';
@@ -10,11 +17,12 @@ $nextDir = $dir === 'ASC' ? 'desc' : 'asc';
 
 $stmt = $pdo->query("SELECT title, artist, style FROM setlist ORDER BY $col $dir");
 $rows = $stmt->fetchAll();
+
 ?>
+<div class="container2">
     <h2>Setlist</h2>
-    <p>Clique sur l'entête de colonne pour trier côté serveur (rechargement avec paramètres GET).</p>
     <div style="margin:12px 0">
-      <input id="q" type="search" placeholder="Recherche instantanée (JS)">
+      <input id="q" type="search" placeholder="Recherche">
     </div>
     <table id="tab">
       <thead>
@@ -27,16 +35,15 @@ $rows = $stmt->fetchAll();
       <tbody>
         <?php foreach($rows as $r): ?>
           <tr>
-            <td><?php echo htmlspecialchars($r['title']); ?></td>
-            <td><?php echo htmlspecialchars($r['artist']); ?></td>
-            <td><?php echo htmlspecialchars($r['style']); ?></td>
+            <td><?php echo ($r['title']); ?></td>
+            <td><?php echo ($r['artist']); ?></td>
+            <td><?php echo ($r['style']); ?></td>
           </tr>
         <?php endforeach; ?>
       </tbody>
     </table>
 
     <script>
-      // Filtrage instantané (bonus front)
       const q = document.getElementById('q');
       const rows = Array.from(document.querySelectorAll('#tab tbody tr'));
       q.addEventListener('input', () => {

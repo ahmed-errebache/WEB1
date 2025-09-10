@@ -3,7 +3,7 @@
 
 CREATE DATABASE IF NOT EXISTS myband CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
-CREATE USER IF NOT EXISTS 'myband_user'@'localhost' IDENTIFIED BY 'myband_pass';
+CREATE USER IF NOT EXISTS 'AhmedBrand'@'localhost' IDENTIFIED BY 'myBrandAdmin';
 GRANT ALL PRIVILEGES ON myband.* TO 'myband_user'@'localhost';
 FLUSH PRIVILEGES;
 
